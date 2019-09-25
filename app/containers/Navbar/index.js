@@ -26,6 +26,7 @@ import { sidebarOpenToAction } from '../SideBar/actions';
 export function Navbar(props) {
   useInjectReducer({ key: 'navbar', reducer });
   useInjectSaga({ key: 'navbar', saga });
+  const githubDeployPath=process.env.GITHUB_DEPLOY_PATH?process.env.GITHUB_DEPLOY_PATH:'';
 
   return (
     // <div className="shadow-sm bg-white rounded">
@@ -81,10 +82,10 @@ export function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <li className="nav-item active">
-              <NavLink to="/" className="nav-link">Home <span className="sr-only">(current)</span></NavLink>
+              <NavLink to={`${githubDeployPath}/`} className="nav-link">Home <span className="sr-only">(current)</span></NavLink>
             </li>
             <li className="nav-item">
-            <NavLink to="/viewUsers" className="nav-link">User List </NavLink>
+            <NavLink to={`${githubDeployPath}/viewUsers`} className="nav-link">User List </NavLink>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -98,9 +99,9 @@ export function Navbar(props) {
             </li>
           </ul>
           <div className="form-inline my-2 my-lg-0">
-            <NavLink to="/signup" className="btn btn-outline-success btn-sm mr-sm-2" >Signup</NavLink>
-            <NavLink to="/login" className="btn btn-outline-success btn-sm mr-sm-2" >Login</NavLink>
-            <NavLink to="/logout" className="btn btn-outline-success btn-sm my-2 my-sm-0" >Logout</NavLink>
+            <NavLink to={`${githubDeployPath}/signup`} className="btn btn-outline-success btn-sm mr-sm-2" >Signup</NavLink>
+            <NavLink to={`${githubDeployPath}/login`} className="btn btn-outline-success btn-sm mr-sm-2" >Login</NavLink>
+            <NavLink to={`${githubDeployPath}/logout`}  className="btn btn-outline-success btn-sm my-2 my-sm-0" >Logout</NavLink>
           </div>
         </div>
       </nav>
